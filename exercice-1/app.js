@@ -1,3 +1,13 @@
+// Titre : Révisions nocturnes
+
+/* J'ai regardé dans les références de P5 et je me suis intéressée à la sphère. Elle est intéressante car contrairement à ce que l’on a vu pendant le cours, cette dernière nécessite l’appel à WebGL en paramètre lors de la création du canvas.
+  On utilise WEBGL car cette interface permet de créer et afficher de la 2D ou de la 3D dans un canvas.
+  Pour créer une sphère, on a plusieurs façon de faire. La fonction sphere() peut-être utilisée avec 3 paramètres optionnels :
+- Le rayon (radius)
+- detailX : pour subdiviser les parties dans l’axe des X
+- detail Y : pour subdiviser les parties dans l’axe des X
+De plus, on peut le faire tourner avec la fonction rotate() sur l’axe des X (rotateX) ou l’axe des Y (rotateY).*/
+
 function setup() {
   createCanvas(1280, 720);
   c1 = color(0, 0, 65);
@@ -561,25 +571,3 @@ function setGradient(c1, c2) {
     line(0, y, width, y);
   }
 }
-
-function mousePressed() {
-  console.log(mouseX, mouseY);
-}
-
-function switchOff() {
-  
-}
-
-//Index 1 objet dans les références de P5 :
-// le résumer en quelques termes/mots (pour aller plus loin dans la doc)
-/* J'ai regardé dans les références de P5 et je me suis intéressée à la sphère. Elle est intéressante car contrairement à ce que l’on a vu pendant le cours, cette dernière nécessite l’appel à WebGL en paramètre lors de la création du canvas.
-
-On utilise WEBGL car cette interface permet de créer et afficher de la 2D ou de la 3D dans un canvas.
-
-Pour créer une sphère, on a plusieurs façon de faire. La fonction sphere() peut-être utilisée avec 3 paramètres optionnels :
-
-- Le rayon (radius)
-- detailX : pour subdiviser les parties dans l’axe des X
-- detail Y : pour subdiviser les parties dans l’axe des X
-
-De plus, on peut le faire tourner avec la fonction rotate() sur l’axe des X (rotateX) ou l’axe des Y (rotateY).*/
