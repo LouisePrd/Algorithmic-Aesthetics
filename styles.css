@@ -25,9 +25,22 @@ h2 {
 
 p {
     font-family: 'Open Sans', sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     line-height: 1.5;
     text-align: center;
     margin-top: 5rem;
     color: white;
+}
+
+ul {
+    color: white;
+    text-align: center;
+    list-style-type: none;
+    font-size: 1.5rem;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
 }
