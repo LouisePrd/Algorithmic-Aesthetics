@@ -9,7 +9,7 @@
 }
 
 html {
-    background-color: #F278A1;
+   
 }
 
 h1 {
@@ -51,10 +51,17 @@ a {
     margin-top: 4rem;
 }
 
-.columnLeft {
-    float: left;
+.columnLeft, .columnRight {
     width: 50%;
     height: 100vh;
+}
+
+.columnLeft {
+    float: left;
+    background-color: #F278A1;
+}
+
+.columnRight {
+    float: right;
     background-color: #7c5ce3;
-    scroll-snap-align: start;
 }
