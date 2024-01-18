@@ -14,17 +14,17 @@ Documenter dans le code :
 - Index 1 objet dans les références de P5 : le résumer en quelques termes
 
 ### Exercice 2
-
 Grille de couleur : 1000x1000 et produire une grille de carrés colorés de 10x10 cellules
 Choix d'une palette de 12 couleurs
-A la fois des harmonies colorées et des contrastes
-Marges sur les bords
-
+A la fois des harmonies colorées et des contrastes + marges sur les bords
 1/ Choisir les couleurs
 2/ Les répartir : quoi va où<br>
-
 Idée : résultat doit mettre en évidence à la fois des accords et des contrastes
 Commentaire : ajouter liste de concepts (4 min) qui restituent la qualité de notre grille colorée
+
+### Exercice 3
+Tenter de concevoir un algorithme ressemblant à celui qui aurait pu créer une des oeuvres de Hiroshi Kawano (premier artiste programmateur dans les années 1960)
+Exposition du ZKM en 2012 : www03.zkm.de/kawano<br><br>
 
 ## Résultats
 ### Entrée de Copernic vue du haut
