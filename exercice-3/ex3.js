@@ -164,3 +164,7 @@ function changeShape() {
   createContour("#231E1A");
   noStroke();
 }
+
+function saveImage() {
+  saveCanvas("myArtwork", "jpg");
+}

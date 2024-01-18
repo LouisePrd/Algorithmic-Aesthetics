@@ -14,9 +14,12 @@
     <h1>Recoding</h1>
 
     <div class="buttons">
-        <button id="buttonBg">Change background</button>
-        <button id="buttonColor">Change colors</button>
-        <button id="buttonShape">Change shape</button>
+        <div class="top">
+            <button id="buttonBg">Change background</button>
+            <button id="buttonColor">Change colors</button>
+            <button id="buttonShape">Change shape</button>
+        </div>
+        <button id="buttonSave">Save</button>
     </div>
 
 </body>
@@ -30,4 +33,6 @@
     buttonColor.addEventListener("click", changeColor);
     let buttonShape = document.getElementById("buttonShape");
     buttonShape.addEventListener("click", changeShape);
+    let buttonSave = document.getElementById("buttonSave");
+    buttonSave.addEventListener("click", saveImage);
 </script>

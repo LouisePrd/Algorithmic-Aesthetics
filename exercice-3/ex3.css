@@ -4,6 +4,7 @@
 * {
     margin: 0;
     padding: 0;
+    background-color: #FFFBE7;
 }
 
 h1 {
@@ -20,19 +21,22 @@ canvas {
     margin-left: auto;
     margin-right: auto;
     width: 20%;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
 }
 
 .buttons {
-    margin-top: 3rem;
+    margin-top: 2rem;
 }
 
-#buttonBg, #buttonColor, #buttonShape {
+#buttonBg, #buttonColor, #buttonShape, #buttonSave {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 20%;
     margin-top: 0.5rem;
     font-family: 'Rubik', sans-serif;
+    background-color: white;
+    padding: 3px;
+    border-radius: 5px;
 }
 
