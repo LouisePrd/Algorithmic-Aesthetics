@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,21 @@
     <script src="../p5/p5.min.js"></script>
     <script src="ex3.js"></script>
 </head>
+
 <body>
-    
+    <button id="buttonBg">Change background</button>
+    <button id="buttonColor">Change colors</button>
+    <button id="buttonShape">Change shape</button>
+
 </body>
+
 </html>
+
+<script>
+    let buttonBg = document.getElementById("buttonBg");
+    buttonBg.addEventListener("click", changeBackGround);
+    let buttonColor = document.getElementById("buttonColor");
+    buttonColor.addEventListener("click", changeColor);
+    let buttonShape = document.getElementById("buttonShape");
+    buttonShape.addEventListener("click", changeShape);
+</script>

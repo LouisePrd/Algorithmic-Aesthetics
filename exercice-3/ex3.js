@@ -1,39 +1,46 @@
+let shape = "rectangle";
+
 function setup() {
+  // creation du canvas par défaut
   createCanvas(500, 500);
   background("#E3DAC9");
-  addSquares("#E3DAC9", "#231E1A");
+  addShape("#E3DAC9", "#231E1A", shape);
   createGrid("#E3DAC9");
+  createContour("#231E1A");
+  noStroke();
 }
 
-function draw() {}
-
+// création des bords
 function createGrid(color) {
   let gap = 20;
+  fill(color);
   for (let i = 0; i < 500; i++) {
     for (let j = 0; j < 500; j++) {
       if (i == 0 || j == 0 || i == 499 || j == 499) {
-        fill(color);
         rect(i, j, i + gap, j + gap);
       }
       if (i == 499 || j == 499 || i == 0 || j == 0) {
-        fill(color);
         rect(i, j, i + gap, j + gap);
         rect(i - gap, j - gap, i + gap, j + gap);
-        line(i - gap, j - gap, i + gap, j + gap);
-      }
-
-      // create line around grid
-      if (i == gap || j == gap || i == 499 - gap || j == 499 - gap) {
-        fill(0);
-        line(i, j, i + gap, j + gap);
       }
     }
   }
 }
 
-function addSquares(color1, color2) {
+// création des contours
+function createContour(color) {
+  stroke(color);
+  strokeWeight(2);
+  line(20, 20, 20, 480);
+  line(20, 20, 480, 20);
+  line(480, 20, 480, 480);
+  line(20, 480, 480, 480);
+}
+
+// création des blocs de couleur
+function addShape(color1, color2, shape) {
   let gapRandomX = 350; // longueur
-  let gapRandomY = 12; // hauteur
+  let gapRandomY = 10; // hauteur
   let randomHeight = 0;
   let randomWidth = 0;
   let isBlack = false;
@@ -44,32 +51,67 @@ function addSquares(color1, color2) {
 
   for (let i = 1; i < 500; i++) {
     for (let j = 0; j < 500; j++) {
+      // alternance de couleur
       if (isBlack == false) {
-        fill(color1); // "#231E1A"
+        fill(color1); // "#231E1A" par défaut
         isBlack = true;
       } else {
-        fill(color2); // "#E3DAC9"
+        fill(color2); // "#E3DAC9" par défaut
         isBlack = false;
       }
 
+      // blocs avec des hauteurs et largeurs aléatoires
       randomWidth = Math.floor(Math.random() * (gapRandomX - 50) + 50);
-      if (i == 1 && j == 0) {
-        randomHeight = Math.floor(Math.random() * (2 - gapRandomY) + 2);
-        rect(j, i, j + randomWidth, i + randomHeight);
-      } else {
-        rect(j, i, j + randomWidth, i);
-        i += randomHeight;
+
+      if (shape == "triangle") {
+        if (i == 1 && j == 0) {
+          randomHeight = Math.floor(Math.random() * (0 - gapRandomY) + 2);
+          fill(color1);
+          triangle(j, i, j + randomWidth, i, j + randomWidth, i + randomHeight);
+        } else {
+          fill(color2);
+          triangle(j, i, j + randomWidth, i, j + randomWidth, i + randomHeight);
+          i += randomHeight;
+        }
       }
+      if (shape == "rectangle") {
+        if (i == 1 && j == 0) {
+          randomHeight = Math.floor(Math.random() * (0 - gapRandomY) + 2);
+          rect(j, i, j + randomWidth, i + randomHeight);
+        } else {
+          rect(j, i, j + randomWidth, i);
+          i += randomHeight;
+        }
+      }
+
+      if (shape == "circle") {
+        if (i == 1 && j == 0) {
+          randomHeight = Math.floor(Math.random() * (0 - gapRandomY) + 2);
+          ellipse(j, i, randomWidth, randomHeight);
+        } else {
+          ellipse(j, i, randomWidth, randomHeight);
+          i += randomHeight;
+        }
+      }
+
+      // évolution de la largeur pour la prochaine itération
       j += randomWidth;
     }
 
-    // on diminue 1 fois sur 2
-    if (i % 2 == 0) gapRandomX -= 1;
+    // hauteur de + en + petite
+    if (i % 2 == 0) gapRandomX -= 40;
     randomHeight = Math.floor(Math.random() * gapRandomY);
+    // largeur de + en + petite
+    if (i % 2 == 0) gapRandomY += 2;
+
+    // évolution de la hauteur pour la prochaine itération
     i += randomHeight;
   }
 }
 
+// Animations bonus
+
+// changement de couleur du fond
 function changeBackGround() {
   let randomR = Math.floor(Math.random() * (255 - 0) + 0);
   let randomG = Math.floor(Math.random() * (255 - 0) + 0);
@@ -87,18 +129,12 @@ function changeBackGround() {
         fill(randomColor);
         rect(i, j, i + 20, j + 20);
         rect(i - 20, j - 20, i + 20, j + 20);
-        line(i - 20, j - 20, i + 20, j + 20);
-      }
-
-      // create line around grid
-      if (i == 20 || j == 20 || i == 499 - 20 || j == 499 - 20) {
-        fill(0);
-        line(i, j, i + 20, j + 20);
       }
     }
   }
 }
 
+// changement de couleur des blocs
 function changeColor() {
   let randomR = Math.floor(Math.random() * (255 - 0) + 0);
   let randomG = Math.floor(Math.random() * (255 - 0) + 0);
@@ -112,6 +148,19 @@ function changeColor() {
   let randomColor2 = color(randomR2, randomG2, randomB2);
 
   background(randomColor);
-  addSquares(randomColor, randomColor2);
+  addShape(randomColor, randomColor2, shape);
   createGrid(randomColor);
+  createContour("#231E1A");
+  noStroke();
+}
+
+// changement de shape des blocs
+function changeShape() {
+  let tabShape = ["triangle", "rectangle", "circle"];
+  shape = tabShape[Math.floor(Math.random() * (3 - 0) + 0)];
+  background("#E3DAC9");
+  addShape("#E3DAC9", "#231E1A", shape);
+  createGrid("#E3DAC9");
+  createContour("#231E1A");
+  noStroke();
 }
