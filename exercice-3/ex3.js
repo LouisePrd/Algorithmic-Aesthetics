@@ -2,29 +2,51 @@ function setup() {
   createCanvas(500, 500);
   background("#E3DAC9");
   addSquares();
+  createGrid();
 }
 
 function draw() {}
 
-// creation de grille avec les marges mais 
+// creation de grille avec les marges mais
 // enlevée car problèmes de dépassement des carrés
 function createGrid() {
-  let gap = 50;
-  square(gap, gap, width - 2 * gap);
+  let gap = 20;
+  for (let i = 0; i < 500; i++) {
+    for (let j = 0; j < 500; j++) {
+        if (i == 0 || j == 0 || i == 499 || j == 499) {
+            fill("#E3DAC9");
+            rect(i, j, i + gap, j + gap);
+        }
+        if (i == 499 || j == 499 || i == 0 || j == 0) {
+            fill("#E3DAC9");
+            rect(i, j, i + gap, j + gap);
+            rect(i - gap , j - gap , i + gap, j + gap);
+            line(i - gap , j - gap , i + gap, j + gap);
+        }
+
+        // create line around grid
+        if (i == gap || j == gap || i == 499 - gap || j == 499 - gap) {
+            fill(0);
+            line(i, j, i + gap, j + gap);
+        }
+    }
+  }
 }
 
 function addSquares() {
-  let gapRandomX = 160; // longueur
-  let gapRandomY = 350; // hauteur
+  let gapRandomX = 350; // longueur
+  let gapRandomY = 12; // hauteur
   let randomHeight = 0;
   let randomWidth = 0;
   let isBlack = false;
   noStroke();
 
-  for (let i = 0; i < 500; i++) {
+  for (let i = 1; i < 500; i++) {
+    // hauteur
     for (let j = 0; j < 500; j++) {
-      randomHeight = Math.floor(Math.random() * gapRandomX);
-      randomWidth = Math.floor(Math.random() * gapRandomY);
+      // longueur
+
+      randomWidth = Math.floor(Math.random() * (gapRandomX - 50) + 50);
 
       // alternance verticale
       if (isBlack == false) {
@@ -35,21 +57,20 @@ function addSquares() {
         isBlack = false;
       }
 
-      // 2 ranges car dans le dessin ceux du milieu 
-      // semblent plus grands horizontalement
-      if (j > 150 || j > 275) {
-        randomHeight = Math.floor((Math.random() * gapRandomX) / 2);
-        randomWidth = Math.floor((Math.random() * gapRandomY) / 2);
+      if (i == 1 && j == 0) {
+        randomHeight = Math.floor(Math.random() * (2 - gapRandomY) + 2);
+        rect(j, i, j + randomWidth, i + randomHeight);
+      } else {
+        rect(j, i, j + randomWidth, i);
+        i += randomHeight;
       }
 
-      // plus on descend, plus les carrés sont petits
-      if (i > 150) {
-        randomHeight = Math.floor((Math.random() * gapRandomX) / 2);
-        randomWidth = Math.floor((Math.random() * gapRandomY) / 2);
-      }
-      rect(j, i, j + randomWidth, i + randomHeight);
       j += randomWidth;
     }
-    i += 12; // problème ici car i fixe alors qu'il doit dépendre du carré précédent
+
+    // on diminue 1 fois sur 2
+    if (i % 2 == 0) gapRandomX -= 1;
+    randomHeight = Math.floor(Math.random() * gapRandomY);
+    i += randomHeight;
   }
 }
