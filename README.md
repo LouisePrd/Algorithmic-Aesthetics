@@ -7,7 +7,7 @@ Support scolaire : http://mobitool.free.fr/edu/ea/
 ## Consigne
 
 ### Exercice 1
-Proposer une représentation du campus Copernic la nuit ou du capus Descartes, notamment avec des éléments architecturaux
+Proposer une représentation du campus Copernic la nuit ou du campus Descartes, notamment avec des éléments architecturaux
 Dimensions max : 1280x720px
 Documenter dans le code : 
 - Commenter travail, choix (titrer et donner titre image)
@@ -31,4 +31,5 @@ Exposition du ZKM en 2012 : www03.zkm.de/kawano<br><br>
 <img width="1280" alt="Capture d’écran 2024-01-16 à 10 11 07" src="https://github.com/LouisePrd/Algorithmic-Aesthetics-Ex1/assets/77757761/bd70aef8-ea08-47dc-8c0b-4fdbfe079bd0"><br>
 ### Du rêve au cauchemar
 https://github.com/LouisePrd/Algorithmic-Aesthetics/assets/77757761/79882f33-56fe-4d97-a901-ffea9a6678da
-
+### Cycle de la vie
+A venir
