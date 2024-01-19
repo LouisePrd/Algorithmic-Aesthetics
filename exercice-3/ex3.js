@@ -4,7 +4,8 @@ function setup() {
   // creation du canvas par défaut
   createCanvas(500, 500);
   background("#E3DAC9");
-  addShape("#E3DAC9", "#231E1A", shape);
+  //addShape("#E3DAC9", "#231E1A", shape);
+  addShapeV2("#E3DAC9", "#231E1A", shape);
   createGrid("#E3DAC9");
   createContour("#231E1A");
   noStroke();
@@ -12,19 +13,13 @@ function setup() {
 
 // création des bords
 function createGrid(color) {
+  noStroke();
   let gap = 20;
   fill(color);
-  for (let i = 0; i < 500; i++) {
-    for (let j = 0; j < 500; j++) {
-      if (i == 0 || j == 0 || i == 499 || j == 499) {
-        rect(i, j, i + gap, j + gap);
-      }
-      if (i == 499 || j == 499 || i == 0 || j == 0) {
-        rect(i, j, i + gap, j + gap);
-        rect(i - gap, j - gap, i + gap, j + gap);
-      }
-    }
-  }
+  rect(0, 0, height, gap);
+  rect(0, 0, gap, height);
+  rect(0, height - gap, height, gap);
+  rect(height - gap, 0, gap, height);
 }
 
 // création des contours
@@ -39,8 +34,8 @@ function createContour(color) {
 
 // création des blocs de couleur
 function addShape(color1, color2, shape) {
-  let gapRandomX = 350; // longueur
-  let gapRandomY = 10; // hauteur
+  let gapRandomX = 300; // longueur
+  let gapRandomY = 20; // hauteur
   let randomHeight = 0;
   let randomWidth = 0;
   let isBlack = false;
@@ -65,7 +60,7 @@ function addShape(color1, color2, shape) {
 
       if (shape == "triangle") {
         if (i == 1 && j == 0) {
-          randomHeight = Math.floor(Math.random() * (0 - gapRandomY) + 2);
+          randomHeight = Math.floor(Math.random() * (2 - gapRandomY) + 2);
           fill(color1);
           triangle(j, i, j + randomWidth, i, j + randomWidth, i + randomHeight);
         } else {
@@ -76,7 +71,7 @@ function addShape(color1, color2, shape) {
       }
       if (shape == "rectangle") {
         if (i == 1 && j == 0) {
-          randomHeight = Math.floor(Math.random() * (0 - gapRandomY) + 2);
+          randomHeight = Math.floor(Math.random() * (2 - gapRandomY) + 2);
           rect(j, i, j + randomWidth, i + randomHeight);
         } else {
           rect(j, i, j + randomWidth, i);
@@ -86,7 +81,7 @@ function addShape(color1, color2, shape) {
 
       if (shape == "circle") {
         if (i == 1 && j == 0) {
-          randomHeight = Math.floor(Math.random() * (0 - gapRandomY) + 2);
+          randomHeight = Math.floor(Math.random() * (2 - gapRandomY) + 2);
           ellipse(j, i, randomWidth, randomHeight);
         } else {
           ellipse(j, i, randomWidth, randomHeight);
@@ -99,10 +94,10 @@ function addShape(color1, color2, shape) {
     }
 
     // hauteur de + en + petite
-    if (i % 2 == 0) gapRandomX -= 40;
+    if (i % 2 == 0 && gapRandomX) gapRandomX -= 50;
     randomHeight = Math.floor(Math.random() * gapRandomY);
     // largeur de + en + petite
-    if (i % 2 == 0) gapRandomY += 2;
+    if (i % 2 == 0 && gapRandomY - 2 > 0) gapRandomY -= 2;
 
     // évolution de la hauteur pour la prochaine itération
     i += randomHeight;
@@ -168,3 +163,31 @@ function changeShape() {
 function saveImage() {
   saveCanvas("myArtwork", "jpg");
 }
+
+function addShapeV2(color1, color2, shape) {
+  let gapRandomX = 300; // longueur
+  let gapRandomY = 60; // hauteur
+  let randomHeight = 0;
+  let randomWidth = 0;
+  noStroke();
+
+    for (let i = 0; i < 500; i++) {
+        for (let j = 0; j < 500; j++) {
+          if (isOdd(i)) {
+            fill('#E1D9CC');
+          } else {
+            fill('#1D1A15');
+          }
+          randomHeight = Math.floor(Math.random() * (2 - gapRandomY) + 2);
+          randomWidth = Math.floor(Math.random() * (2 - gapRandomX) + 2);
+          rect(i, j, randomWidth, randomHeight);
+          j += 20;
+        }
+        i += 40;
+        
+    }
+
+    
+}
+
+function isOdd(num) { return num % 2;}
