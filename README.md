@@ -30,6 +30,6 @@ Exposition du ZKM en 2012 : www03.zkm.de/kawano<br><br>
 ### Entrée de Copernic vue du haut
 <img width="1280" alt="Capture d’écran 2024-01-16 à 10 11 07" src="https://github.com/LouisePrd/Algorithmic-Aesthetics-Ex1/assets/77757761/bd70aef8-ea08-47dc-8c0b-4fdbfe079bd0"><br>
 ### Du rêve au cauchemar
-https://github.com/LouisePrd/Algorithmic-Aesthetics/assets/77757761/79882f33-56fe-4d97-a901-ffea9a6678da
+https://github.com/LouisePrd/Algorithmic-Aesthetics/assets/77757761/79882f33-56fe-4d97-a901-ffea9a6678da<br>
 ### Cycle de la vie
-A venir
+[Workshop_esthetique_algorithmique.pdf](https://github.com/LouisePrd/Algorithmic-Aesthetics/files/14896887/Workshop_esthetique_algorithmique.pdf)
