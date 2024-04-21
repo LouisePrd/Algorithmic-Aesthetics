@@ -1,4 +1,4 @@
-# Algorithmic Aesthetics - Ex 1 et 2
+# Algorithmic Aesthetics
 
 Using <a href="https://p5js.org/" target="_blank">P5</a> framework to mix art and science<br>
 JS framework for creative coding projects<br>
